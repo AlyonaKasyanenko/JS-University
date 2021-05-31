@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title></title>
+  <script>
+   function if_else(){
+    
+    let a=document.getElementById('numb_a').value;
+    a = parseInt(a);
+    let b=document.getElementById('numb_b').value;
+    b = parseInt(b);
+    let x_s=document.getElementById('numb_start').value;
+    x_s = parseInt(x_s);
+    let x_e=document.getElementById('numb_end').value;
+    x_e = parseInt(x_e);
+    let step=document.getElementById('numb_step').value;
+    step = parseInt(step);
+    if (x_s<x_e){
+        for (x_s;x_s<=x_e;)
+        {
+        let y=(a*Math.pow(Math.log(x_s),2))/b+Math.sqrt(x_s);
+        document.getElementById('result').value = y;
+        // alert("При х="+x_s+" y="+y);  
+        x_s=x_s+step;
+        
+        }
+    }else alert('Кінцеве значення меньше за початкове, повторіть операцію');
+}
+  </script>
+ </head> 
+ <body>
+  <form>
+   <p>Вихідні дані</p>
+   <p>a=<input type="text" id="numb_a" value="1.38"></p>
+   <p>b=<input type="text" id="numb_b" value="-1.2"></p>
+   <p>Початок: <input type="text" id="numb_start" value="60"></p>
+   <p>Кінець: <input type="text" id="numb_end" value="100"></p>
+   <p>Крок: <input type="text" id="numb_step" value="10"></p>
+   <p><input type="button" value="Побудувати" onClick="if_else()"></p>
+
+   <textarea cols="60" rows="5" id="result"></textarea>
+ 
+  </form>
+ </body>
+</html>
